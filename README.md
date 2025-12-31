@@ -25,7 +25,7 @@ A modern, web-based task management application with CalDAV synchronization, use
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/marcxm/opentasks.git
    cd opentasks
    ```
 
