@@ -8,10 +8,6 @@ RUN apk add -U tzdata
 ENV TZ=Europe/Warsaw
 RUN cp /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
 
-# Accept build argument
-ARG VITE_API_URL
-ENV VITE_API_URL=$VITE_API_URL
-
 # Copy package files
 COPY client/package*.json ./
 

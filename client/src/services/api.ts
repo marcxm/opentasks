@@ -1,15 +1,9 @@
 import axios from 'axios'
 import { Task, TaskList, Category, TaskFilters, TasksResponse } from '../types'
 
-// Determine API URL based on current domain
+// Use relative API URL - nginx will proxy /api to the backend
 const getApiBaseUrl = () => {
-  console.log('Current hostname:', window.location.hostname);
-  console.log('Current origin:', window.location.origin);
-  
-  // Use environment variable for API URL
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5004/api';
-  console.log('Using API URL:', apiUrl);
-  return apiUrl;
+  return '/api';
 }
 
 const api = axios.create({

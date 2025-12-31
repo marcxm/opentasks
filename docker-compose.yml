@@ -24,11 +24,8 @@ services:
     build:
       context: .
       dockerfile: client/Dockerfile
-      args:
-        VITE_API_URL: ${FRONTEND_API_URL:-https://opentasks.example.com/api}
     container_name: opentasks-frontend
     environment:
-      VITE_API_URL: ${FRONTEND_API_URL:-https://opentasks.example.com/api}
       TZ: UTC
     ports:
       - "3004:80"
