@@ -132,3 +132,8 @@ This project is licensed under the Apache 2.0 License - see the LICENSE file for
 - Inspired by the original OpenTasks Android application
 - Built with modern web technologies for cross-platform compatibility
 - CalDAV protocol support for interoperability with existing task management systems
+
+## Screenshots
+
+<img width="3829" height="1930" alt="obraz" src="https://github.com/user-attachments/assets/9611b851-5f16-45ad-ab5b-71ca60c34ebf" />
+
