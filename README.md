@@ -46,7 +46,14 @@ A modern, web-based task management application with CalDAV synchronization, use
 Create a `.env` file in the project root:
 
 ```env
-FRONTEND_API_URL=https://opentasks.example.com/api
+# JWT Secret - Change this to a secure random string in production
+JWT_SECRET=supersecretjwt
+
+# Data directory for persistent storage
+DATA_DIR=./data
+
+# Uploads directory for file attachments
+UPLOADS_DIR=./uploads
 ```
 
 ### CalDAV Setup
