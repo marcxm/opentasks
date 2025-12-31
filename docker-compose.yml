@@ -1,0 +1,40 @@
+services:
+  # Backend API Server with file-based storage
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: opentasks-backend
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /app/data
+      JWT_SECRET: supersecretjwt
+      PORT: 5000
+      TZ: UTC
+    ports:
+      - "5004:5000"
+    volumes:
+      - ${DATA_DIR:-./data}:/app/data
+      - ${UPLOADS_DIR:-./uploads}:/app/uploads
+      - /usr/share/zoneinfo/Europe/Warsaw:/etc/localtime:ro
+    restart: unless-stopped
+
+  # Frontend Web Server
+  frontend:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+      args:
+        VITE_API_URL: ${FRONTEND_API_URL:-https://opentasks.example.com/api}
+    container_name: opentasks-frontend
+    environment:
+      VITE_API_URL: ${FRONTEND_API_URL:-https://opentasks.example.com/api}
+      TZ: UTC
+    ports:
+      - "3004:80"
+    volumes:
+      - /usr/share/zoneinfo/Europe/Warsaw:/etc/localtime:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+

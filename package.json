@@ -1,0 +1,22 @@
+{
+  "name": "opentasks",
+  "version": "1.0.0",
+  "description": "Web-based task management application ported from Android OpenTasks",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "keywords": ["tasks", "productivity", "caldav", "web"],
+  "author": "OpenTasks Web Port",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
